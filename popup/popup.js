@@ -25,6 +25,16 @@ function sendMessagePlayer(stateSend) {
     });
 }
 
+function updateOnlineEnabled() {
+    if (settings.online) {
+        document.getElementById("online-on").style.display = "block";
+        document.getElementById("online-off").style.display = "none";
+    } else {
+        document.getElementById("online-off").style.display = "block";
+        document.getElementById("online-on").style.display = "none";
+    }
+}
+
 var settings;
 loadGlobalSettings(function(returned){
     settings=returned;
@@ -38,6 +48,7 @@ loadGlobalSettings(function(returned){
                 control.addEventListener('change', function() {
                     settings[this.id] = this.checked;
                     saveGlobalSettings(settings);
+                    updateOnlineEnabled();
                 });
             } else if (control.type == "url") {
                 control.value = settings[setting];
@@ -46,8 +57,26 @@ loadGlobalSettings(function(returned){
                     console.log(settings)
                     saveGlobalSettings(settings);
                 });
-            }
+            } else if (control.type == "radioHolder"){
+                defaultValue = settings[setting];
+                radios = document.getElementById(setting).querySelectorAll(".radioHolderEntry");
+               for(const radio of radios){
+                   if(radio.value == defaultValue){
+                       radio.checked = true;
+                   }
+                   radio.addEventListener("click", function () {
+                    console.log(this.value);
+                    settings[this.name] = this.value;
+                    console.log(settings);
+                    saveGlobalSettings(settings);
+                   });
+               }
+            } 
         } catch {}
     }
+
+    // update UI based on whether online mode is enabled
+    updateOnlineEnabled();
+
     document.getElementById("server-link").href = "http://" + settings.server;
 });

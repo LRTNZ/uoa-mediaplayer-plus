@@ -30,21 +30,44 @@
             <li>
                 <a href="#">Online Features</a>
                 <ul>
-                    <li><label>Enable Online Features<input id="online" type="checkbox" value=""></label></li>
-                    <li><a id="server-link" target="_blank" rel="noopener noreferrer">Login to Online Services</a></li>
-                    <li>
-                        <a href="#">Server</a>
-                        <ul>
-                        <p>This is the domain name of the server you want to connect to. The official server of this project is at tct.pythonanywhere.com. You can also enter localhost:8000 if you're running the server on your own machine.</p>
-                        <li><input id="server" type="url" placeholder="tct.pythonanywhere.com (for example)"></input></li>
-                        </ul>
-                    </li>
+                    <li><label>Enable Online Features<input id="online" type="checkbox" value=""></label></li><br>
+                    <div id="online-off" style="display:none;">
+                        <img src="images/undraw_real_time_collaboration.svg">
+                        <br>
+                        <p>UoA MediaplayerPlus Online Services let you watch lectures and study together with your classmates.</p>
+                        <br>
+                    </div>
+                    <div id="online-on" style="display:none;">
+                        <li><a id="server-link" target="_blank" rel="noopener noreferrer">Login to Online Services</a></li>
+                        <li>
+                            <a href="#">Developer Settings</a>
+                            <ul>
+                            <p>This is the domain name of the server you want to connect to. The official server of this project is at tct.pythonanywhere.com. You can also enter localhost:8000 if you're running the server on your own machine. Make sure to add this to your manifest.json file as well!</p>
+                            <li><input id="server" type="url" placeholder="tct.pythonanywhere.com (for example)"></input></li>
+                            </ul>
+                        </li>
+                    </div>
+                    
                 </ul>
             </li>
             <li>
                 <a href="#">Settings</a>
                 <ul>
-                    <li><a href="#">Submenu entry 1</a></li>
+                    <li><a href="#">Default Playback Resolution</a>
+                        <ul id="defaultPlaybackResolution" type="radioHolder">
+                            <label for="720p" class="defaultRadioLabel">720p</label>
+                            <input type="radio" name="defaultPlaybackResolution" class="radioHolderEntry" value="720p"/>
+                            <br>
+                            <label for="540p" class="defaultRadioLabel">540p</label>
+                            <input type="radio" name="defaultPlaybackResolution" class="radioHolderEntry" value="540p"/>
+                            <br>
+                            <label for="360p" class="defaultRadioLabel">360p</label>
+                            <input type="radio" name="defaultPlaybackResolution" class="radioHolderEntry" value="360p"/>
+                            <br>
+                            <label for="Auto" class="defaultRadioLabel">Auto</label>
+                            <input type="radio" name="defaultPlaybackResolution" class="radioHolderEntry" value="Auto"/>
+                        </ul>
+                    </li>
                     <li><a href="#">Submenu entry 2</a></li>
                     <li><a href="#">Submenu entry 3</a></li>
                 </ul>
