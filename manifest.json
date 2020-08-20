@@ -15,7 +15,8 @@
     },
 
     "permissions": [
-      "storage"
+      "storage",
+      "*://mediaplayer.auckland.ac.nz/*"
     ],
 
     "browser_action": {
@@ -33,7 +34,7 @@
     "content_scripts": [
       {
         "matches": ["*://mediaplayer.auckland.ac.nz/*"],
-        "js": ["arrive.min.js", "utils.js", "plus.js"],
+        "js": ["arrive.min.js", "utils.js", "watchParty/watchParty.js", "plus.js"],
         "css" : ["plus.css"]
       },
       {
